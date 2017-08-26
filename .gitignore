@@ -1,0 +1,6 @@
+.vscode
+.DS_Store
+src/*
+!src/example
+conf.d/*
+!conf.d/example
