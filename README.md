@@ -14,9 +14,9 @@ create task config `./conf.d/{module}/{item}.conf`
 
 ### add map&reduce script
 
-The code path is `./src/{module}/{item}/`, then the script will auto add `-file` option for this file.
+The code path is `./src/{module}/{item}/`, then the script will auto add `-file` option for this file.
 
-This step is optional, sample map&reduce also can set in task config file.
+This step is optional, sample map&reduce also can set in task config file.
 
 ### run task
 
