@@ -6,18 +6,20 @@ A hadoop streaming skeleton shell script for messy statistical tasks, it's sampl
 Getting Started
 ----------------
 
-### set config
+### Create Task
 
-set global config `./main.conf`
+`./jarvis.sh -m {module} -i {item}`
 
-create task config `./conf.d/{module}/{item}.conf`
+This command will create a task config file `./conf.d/{module}/{item}.conf`, and a map&reduce script `./src/{module}/{item}/[map|reduce].py`
 
-### add map&reduce script
+### Edit config and map&reduce script
 
-The code path is `./src/{module}/{item}/`, then the script will auto add `-file` option for this file.
+edit global config `./main.conf`
 
-This step is optional, sample map&reduce also can set in task config file.
+edit `./conf.d/{module}/{item}.conf` to do some basic configuration.
 
-### run task
+edit `./src/{module}/{item}/[map|reduce].py`. at last, `run.sh` will auto add `-file` option for this file. This step is optional, sample map&reduce also can set in the task config file.
 
-`run.sh -m {module} -i {item}`
+### Run Task
+
+`./run.sh -m {module} -i {item}`
