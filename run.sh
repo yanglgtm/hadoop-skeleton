@@ -30,7 +30,7 @@ function usage()
 
 function init()
 {
-    if [[ ${MR_MODULE} == "" || ${MR_ITEM} == "" || $1 == "--help" ]]; then 
+    if [[ ${MR_MODULE} == "" || ${MR_ITEM} == "" || $1 == "--help" ]]; then
         usage
     fi
 
@@ -39,11 +39,15 @@ function init()
     if [[ ! -f ${conf_path} ]]; then
         usage "no target file: "${conf_path}
     fi
-    
+
     source ${conf_path}
 
-    if [[ ${MR_INPUT} == "" || ${MR_OUTPUT} == "" || ${MR_MAPPER} == "" || ${MR_REDUCER} == "" ]]; then 
-        usage "MR_INPUT|MR_OUTPUT|MR_MAPPER|MR_REDUCER can not be null"
+    if [[ ${MR_JOBNAME} == "" \
+        || ${MR_INPUT} == "" \
+        || ${MR_OUTPUT} == "" \
+        || ${MR_MAPPER} == "" \
+        || ${MR_REDUCER} == "" ]]; then
+        usage "MR_JOBNAME|MR_INPUT|MR_OUTPUT|MR_MAPPER|MR_REDUCER can not be null"
     fi
 
     source ${BASE_PATH}/main.conf
@@ -59,7 +63,7 @@ function main()
         ${MR_JOB_CONF} \
         ${MR_ATTACH_CONF} \
     "
- 
+
     src_path=${BASE_PATH}/src/${MR_MODULE}/${MR_ITEM}
     if [[ -d ${src_path} ]]; then
         files=`ls ${src_path}`
