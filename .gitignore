@@ -1,6 +1,5 @@
 .vscode
 .DS_Store
-src/*
-!src/example
-conf.d/*
-!conf.d/example
+task/*
+!task/example
+sftp-config.json

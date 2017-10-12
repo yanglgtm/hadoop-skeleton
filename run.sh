@@ -34,7 +34,7 @@ function init()
         usage
     fi
 
-    conf_path=${BASE_PATH}/conf.d/${MR_MODULE}/${MR_ITEM}.conf
+    conf_path=${BASE_PATH}/task/${MR_MODULE}/${MR_ITEM}.conf
 
     if [[ ! -f ${conf_path} ]]; then
         usage "no target file: "${conf_path}
@@ -64,7 +64,7 @@ function main()
         ${MR_ATTACH_CONF} \
     "
 
-    src_path=${BASE_PATH}/src/${MR_MODULE}/${MR_ITEM}
+    src_path=${BASE_PATH}/task/${MR_MODULE}/${MR_ITEM}
     if [[ -d ${src_path} ]]; then
         files=`ls ${src_path}`
         for file in ${files[@]}; do
