@@ -88,7 +88,7 @@ function main()
         if [[ -d ${output_path} ]]; then
             rm -rf ${output_path}/*
         else
-            mkdir ${output_path}
+            mkdir -p ${output_path}
         fi
         ${HADOOP_BIN} fs -get ${MR_OUTPUT}/* ${output_path}
         echo "The results have been downloaded to the directory: ${output_path}"
